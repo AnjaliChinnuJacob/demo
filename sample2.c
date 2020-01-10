@@ -1,26 +1,36 @@
  #include <stdio.h>
 
-    int main() {
-        int intarray[5] = {10,20,30,40,50};
-        //-----------------------^
-        int *pointer = &intarray[2];
+	int main() {
+		int grades[2][5];
+		int i;
+		int j;
+  float average;
 
-        int *parray[3];
+		grades[0][0] = 80;
+		grades[0][1] = 70;
+		grades[0][2] = 65;
+		grades[0][3] = 89;
+		grades[0][4] = 90;
 
-        int i;
-        for (i = 0; i < 3; i++) {
-            parray[i] = pointer + i;
-        }
+		grades[1][0] = 85;
+		grades[1][1] = 80;
+		grades[1][2] = 80;
+		grades[1][3] = 82;
+		grades[1][4] = 87;
 
-        for (i = 0; i < 3; i++) {
-            if (parray[i] == &pointer[i]) {
-                printf("Matched!\n");
-            } else {
-                printf("Fail\n");
-            }
-        }
+		for (i = 0; i < 2; i++) {
+		
+			average = 0;
+			
+			for (j = 0; j < 5; j++) {
+				average += grades[i][j];
+			}
 
-        return 0;
-    }
+			average /= 5.0;
+			printf("The average marks obtained in subject %d is: %.2f\n", i, average);
+		}
+
+		return 0;
+	}
   
   
